@@ -90,6 +90,26 @@
                 font-size: 24px;
             }
         }
+
+	    .projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.project-column {
+    width: calc(25% - 20px);
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+    .project-column {
+        width: calc(50% - 20px);
+    }
+}
     </style>
 </head>
 <body>
@@ -173,25 +193,30 @@
             <p>Bachelor of Engineering in Computer Science - 7.5 CGPA</p>
         </section>
 
-        <section class="section">
-    		<h2>Projects</h2>
-    		<ul>
-        		<li>Manpower Web-Based Automation</li>
-        		<p>Client: Staff Selection Commission (SSC)</p>
-        		<p>Description: Developed a web-based automation system using Selenium in Python. Managed over 3 crore data records efficiently. Project completed successfully with a small team of 3 members.</p>
-
-        		<li>Project Management Tool</li>
-        		<p>Description: Designed and implemented a web-based application for project management used by Project Managers in TCS. Collaborated with teams to ensure seamless integration and functionality across platforms.</p>
-
-        		<li>e-Janma API</li>
-        		<p>Client: State Government Project</p>
-        		<p>Description: Updated the API for the e-Janma project using .NET framework. Conducted thorough testing using Postman and JMeter to ensure functionality, reliability, and performance.</p>
-
-        		<li>Kutumba Project</li>
-        		<p>Client: Government of Karnataka</p>
-        		<p>Description: Enhanced the official Kutumba website with features such as live COVID information using MVC architecture. Implemented solutions to improve user experience and data management.</p>
-    		</ul>
-	</section>
+        <section class="section main">
+    <h2>Projects</h2>
+    <div class="projects-container">
+        <div class="project-column">
+            <h3>Manpower Web-Based Automation</h3>
+            <p>Client: Staff Selection Commission (SSC)</p>
+            <p>Description: Developed a web-based automation system using Selenium in Python. Managed over 3 crore data records efficiently. Project completed successfully with a small team of 3 members.</p>
+        </div>
+        <div class="project-column">
+            <h3>Project Management Tool</h3>
+            <p>Description: Designed and implemented a web-based application for project management used by Project Managers in TCS. Collaborated with teams to ensure seamless integration and functionality across platforms.</p>
+        </div>
+        <div class="project-column">
+            <h3>e-Janma API</h3>
+            <p>Client: State Government Project</p>
+            <p>Description: Updated the API for the e-Janma project using .NET framework. Conducted thorough testing using Postman and JMeter to ensure functionality, reliability, and performance.</p>
+        </div>
+        <div class="project-column">
+            <h3>Kutumba Project</h3>
+            <p>Client: Government of Karnataka</p>
+            <p>Description: Enhanced the official Kutumba website with features such as live COVID information using MVC architecture. Implemented solutions to improve user experience and data management.</p>
+        </div>
+    </div>
+</section>
 
         <section class="section">
             <h2>Languages</h2>
