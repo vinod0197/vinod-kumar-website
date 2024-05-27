@@ -57,12 +57,14 @@
         .main {
             padding: 20px;
             background: #ffffff;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
         .main h2 {
             text-align: center;
         }
         .main .section {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         footer {
             background: #35424a;
@@ -91,7 +93,7 @@
             }
         }
 
-	    .projects-container {
+	.projects-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -110,13 +112,28 @@
         width: calc(50% - 20px);
     }
 }
+
+/* Additional styles for footer icons */
+        .footer-icons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer-icons a {
+            display: inline-block;
+            margin-right: 10px;
+            text-decoration: none;
+            color: white; /* Change color to black */
+            font-size: 20px; /* Adjust font size as needed */
+            border-bottom: 1px solid white; /* Add underline */
+            padding-bottom: 0px; /* Adjust padding as needed */
+        }
+
     </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo">
-               
             </div>
             <ul>
                 <li><a href="#contact">Contact</a></li>
@@ -134,14 +151,14 @@
     </section>
 
     <div class="container main">
-        <section id="about" class="section">
+        <section id="about" class="section main">
             <h2>About Me</h2>
             <p>As a dedicated software developer, I bring a total of 3 years of experience in the field of software development, with a particular focus on frontend development. My strong background lies in JavaScript, React, and React Native development, where I have honed my skills in creating responsive and user-friendly web and mobile applications. My expertise allows me to meet client needs effectively while enhancing the overall user experience.</p>
 
 	<p>I am passionate about staying updated with the latest frontend technologies and design trends. This passion drives me to continually explore new tools, techniques, and best practices in the industry. By staying current with emerging technologies, I ensure that the solutions I develop are not only innovative but also aligned with the evolving needs of users and clients.</p>
         </section>
 
-        <section id="experience" class="section">
+        <section id="experience" class="section main">
             <h2>Experience</h2>
             <h3>Tata Consultancy Services (May 2022 - Nov 2023)</h3>
             <p>Associate Software Engineer</p>
@@ -177,7 +194,7 @@
 		</ul>
         </section>
 
-	<section class="section">
+	<section class="section main">
             <h2>Skills</h2>
             <ul>
                 <li>Technical: JavaScript, React.js, React Native, HTML5, CSS3, Redux, Python.</li>
@@ -187,7 +204,7 @@
             </ul>
         </section>
 
-        <section class="section">
+        <section class="section main">
             <h2>Education</h2>
             <p>MS Engineering College (2016 - 2020)</p>
             <p>Bachelor of Engineering in Computer Science - 7.5 CGPA</p>
@@ -217,13 +234,12 @@
         </div>
     </div>
 </section>
-
-        <section class="section">
+        <section class="section main">
             <h2>Languages</h2>
             <p>English, Hindi, Kannada, Marwadi</p>
         </section>
 
-        <section id="contact" class="section">
+        <section id="contact" class="section main">
             <h2>Contact</h2>
             <p>Bengaluru, India 560026</p>
             <p>Phone: 7411773622</p>
@@ -233,6 +249,25 @@
 
     <footer>
         <p>&copy; 2024 Vinod Kumar. All rights reserved.</p>
+	
+	<div class="footer-icons">
+                <a href="https://www.linkedin.com/in/vinod-kumar-bba69b183/" target="_blank">
+                    LinkedIn
+                </a>
+                <a href="https://github.com/vinod0197" target="_blank">
+                    GitHub
+                </a>
+                <a href="https://leetcode.com/u/vinod0103/" target="_blank">
+                    LeetCode
+                </a>
+                <a href="https://www.hackerrank.com/profile/vinod01_kumar03" target="_blank">
+                    HackerRank
+                </a>
+                <a href="https://www.instagram.com/vinod011297/" target="_blank">
+                    Instagram
+                </a>
+            </div>
+
     </footer>
 </body>
 </html>
