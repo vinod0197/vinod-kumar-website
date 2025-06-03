@@ -1,273 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinod Kumar - Personal Webpage</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        header {
-            background: #35424a;
-            color: #ffffff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #e8491d 3px solid;
-        }
-        header a {
-            color: #ffffff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
-        }
-        header ul {
-            padding: 0;
-            list-style: none;
-        }
-        header li {
-            float: right;
-            display: inline;
-            padding: 0 20px 0 20px;
-        }
-        header .logo {
-            float: left;
-        }
-        header .logo h1 {
-            margin: 0;
-        }
-        .banner {
-            background: #35424a;
-            color: #ffffff;
-            padding: 100px 0;
-            text-align: center;
-        }
-        .banner h1 {
-            font-size: 50px;
-        }
-        .main {
-            padding: 20px;
-            background: #ffffff;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        .main h2 {
-            text-align: center;
-        }
-        .main .section {
-            margin-bottom: 30px;
-        }
-        footer {
-            background: #35424a;
-            color: #ffffff;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        /* Media Queries for Responsive Design */
-        @media only screen and (max-width: 768px) {
-            .container {
-                width: 90%;
-            }
-            header li {
-                padding: 10px;
-            }
-            .banner h1 {
-                font-size: 40px;
-            }
-            .main {
-                padding: 10px;
-            }
-            .main h2 {
-                font-size: 24px;
-            }
-        }
-
-	.projects-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.project-column {
-    width: calc(25% - 20px);
-    margin-bottom: 20px;
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-@media only screen and (max-width: 768px) {
-    .project-column {
-        width: calc(50% - 20px);
+  <meta charset="UTF-8">
+  <title>Scientific Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
     }
-}
 
-/* Additional styles for footer icons */
-        .footer-icons {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .footer-icons a {
-            display: inline-block;
-            margin-right: 10px;
-            text-decoration: none;
-            color: white; /* Change color to black */
-            font-size: 20px; /* Adjust font size as needed */
-            border-bottom: 1px solid white; /* Add underline */
-            padding-bottom: 0px; /* Adjust padding as needed */
-        }
+    body {
+      background: #f1f5f9;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-    </style>
+    .calculator {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .display {
+      background: #edf2f7;
+      height: 60px;
+      border-radius: 10px;
+      text-align: right;
+      padding: 10px;
+      font-size: 24px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #f7fafc;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #e2e8f0;
+    }
+
+    .btn.operator {
+      background: #ffd166;
+    }
+
+    .btn.operator:hover {
+      background: #fcbf49;
+    }
+
+    .btn.equal {
+      background: #06d6a0;
+      color: white;
+    }
+
+    .btn.equal:hover {
+      background: #00b894;
+    }
+
+    .btn.clear {
+      background: #ef476f;
+      color: white;
+    }
+
+    .btn.clear:hover {
+      background: #d62839;
+    }
+
+    .btn.wide {
+      grid-column: span 2;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-            </div>
-            <ul>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </div>
-    </header>
 
-    <section class="banner">
-        <div class="container">
-            <h1>Vinod Kumar</h1>
-            <p>Bengaluru, India | Software Engineer</p>
-        </div>
-    </section>
+<div class="calculator">
+  <div id="display" class="display">0</div>
+  <div class="buttons">
+    <button class="btn clear" onclick="clearDisplay()">C</button>
+    <button class="btn" onclick="append('(')">(</button>
+    <button class="btn" onclick="append(')')">)</button>
+    <button class="btn" onclick="append('^')">xʸ</button>
+    <button class="btn" onclick="append('%')">%</button>
 
-    <div class="container main">
-        <section id="about" class="section main">
-            <h2>About Me</h2>
-            <p>As a dedicated software developer, I bring a total of 3 years of experience in the field of software development, with a particular focus on frontend development. My strong background lies in JavaScript, React, and React Native development, where I have honed my skills in creating responsive and user-friendly web and mobile applications. My expertise allows me to meet client needs effectively while enhancing the overall user experience.</p>
+    <button class="btn" onclick="append('sin(')">sin</button>
+    <button class="btn" onclick="append('cos(')">cos</button>
+    <button class="btn" onclick="append('tan(')">tan</button>
+    <button class="btn" onclick="append('Math.PI')">π</button>
+    <button class="btn operator" onclick="append('/')">÷</button>
 
-	<p>I am passionate about staying updated with the latest frontend technologies and design trends. This passion drives me to continually explore new tools, techniques, and best practices in the industry. By staying current with emerging technologies, I ensure that the solutions I develop are not only innovative but also aligned with the evolving needs of users and clients.</p>
-        </section>
+    <button class="btn" onclick="append('log(')">log</button>
+    <button class="btn" onclick="append('ln(')">ln</button>
+    <button class="btn" onclick="append('Math.E')">e</button>
+    <button class="btn" onclick="append('√(')">√</button>
+    <button class="btn operator" onclick="append('*')">×</button>
 
-        <section id="experience" class="section main">
-            <h2>Experience</h2>
-            <h3>Tata Consultancy Services (May 2022 - Nov 2023)</h3>
-            <p>Associate Software Engineer</p>
-            <ul>
-                <li>Led the development of frontend interfaces for web and mobile applications using React.js and React Native, ensuring cross-platform compatibility and performance optimization.</li>
-                <li>Implemented reusable UI components and design systems, contributing to consistent user interfaces and improved development efficiency.</li>
-                <li>Collaborated with UX/UI designers to translate wireframes and mockups into interactive and visually appealing designs, adhering to design principles and accessibility standards.</li>
-		<li>Conducted code reviews, implemented unit tests, and maintained code quality to deliver high-quality software solutions within project timelines.</li>
-                <li>Actively participated in Agile development methodologies, including sprint planning, daily stand-ups, and sprint demos, fostering teamwork and continuous improvement.</li>
-		<li>Developed and maintained frontend components and features using JavaScript, HTML5, and CSS3, ensuring browser compatibility and responsive design across devices.</li>
-                <li>Integrated third-party APIs and libraries to enhance application functionality and user experience, such as integrating payment gateways and social media APIs.</li>
-		<li>Implemented state management using Redux for complex frontend applications, managing application state efficiently and improving data flow.</li>
-            </ul>
-            <h3>Government of Karnataka (Sept 2021 - Mar 2022)</h3>
-            <p>Software Engineer</p>
-            <ul>
-                <li>worked as a software developer in center of e governance.</li>
-                <li>Designed and developed RESTful APIs using MVC architecture and C# programming language, ensuring clean and maintainable code.</li>
-                <li>Implemented API endpoints for data retrieval, manipulation, and integration with frontend applications, enhancing system functionality and performance.</li>
-		<li>Conducted comprehensive testing of APIs using Postman and JMeter, including functional testing, load testing, and performance monitoring, ensuring reliability and scalability.</li>
-		<li>Collaborated with cross-functional teams, including QA engineers and product managers, to gather requirements, define API specifications, and deliver customized solutions.</li>
-		<li>Integrated third-party APIs and external services, such as payment gateways and authentication providers, to extend application capabilities and meet business needs.</li>
-            </ul>
+    <button class="btn" onclick="append('7')">7</button>
+    <button class="btn" onclick="append('8')">8</button>
+    <button class="btn" onclick="append('9')">9</button>
+    <button class="btn operator" onclick="append('-')">−</button>
+    <button class="btn" onclick="backspace()">⌫</button>
 
-	    <h3>Mulesoft(July 2019 - Dec 2019)</h3>
-            <p>Mulesoft developer Intern</p>
-            <ul>
-                <li>Participating in the design and development of APIs using MuleSoft's Anypoint Platform, gaining hands-on experience in API implementation and integration techniques.</li>
-                <li>Assisting senior developers in creating Mule flows, connectors, and transformations to facilitate seamless data exchange between systems and applications.</li>
-                <li>Collaborating with cross-functional teams to understand business requirements, troubleshoot integration issues, and propose effective solutions.</li>
-                <li>Conducting testing and validation of APIs using MuleSoft tools and methodologies, ensuring functionality, performance, and reliability.</li>
-                <li>Actively learning and exploring new features, tools, and best practices in MuleSoft development, contributing to continuous improvement and innovation within the team.</li>
-		</ul>
-        </section>
+    <button class="btn" onclick="append('4')">4</button>
+    <button class="btn" onclick="append('5')">5</button>
+    <button class="btn" onclick="append('6')">6</button>
+    <button class="btn operator" onclick="append('+')">+</button>
+    <button class="btn" onclick="append('^2')">x²</button>
 
-	<section class="section main">
-            <h2>Skills</h2>
-            <ul>
-                <li>Technical: JavaScript, React.js, React Native, HTML5, CSS3, Redux, Python.</li>
-                <li>Non Technical: Agile Methodologies, Problem-Solving, Communication, Time Management.</li>
-                <li>API Development: RESTful APIs, MVC architecture, C#, MuleSoft's Anypoint Platform</li>
-                <li>Testing: Postman, JMeter, Unit Testing, Integration Testing</li>
-            </ul>
-        </section>
+    <button class="btn" onclick="append('1')">1</button>
+    <button class="btn" onclick="append('2')">2</button>
+    <button class="btn" onclick="append('3')">3</button>
+    <button class="btn equal wide" onclick="calculate()">=</button>
 
-        <section class="section main">
-            <h2>Education</h2>
-            <p>MS Engineering College (2016 - 2020)</p>
-            <p>Bachelor of Engineering in Computer Science - 7.5 CGPA</p>
-        </section>
+    <button class="btn wide" onclick="append('0')">0</button>
+    <button class="btn" onclick="append('.')">.</button>
+  </div>
+</div>
 
-        <section class="section main">
-    <h2>Projects</h2>
-    <div class="projects-container">
-        <div class="project-column">
-            <h3>Manpower Web-Based Automation</h3>
-            <p>Client: Staff Selection Commission (SSC)</p>
-            <p>Description: Developed a web-based automation system using Selenium in Python. Managed over 3 crore data records efficiently. Project completed successfully with a small team of 3 members.</p>
-        </div>
-        <div class="project-column">
-            <h3>Project Management Tool</h3>
-            <p>Description: Designed and implemented a web-based application for project management used by Project Managers in TCS. Collaborated with teams to ensure seamless integration and functionality across platforms.</p>
-        </div>
-        <div class="project-column">
-            <h3>e-Janma API</h3>
-            <p>Client: State Government Project</p>
-            <p>Description: Updated the API for the e-Janma project using .NET framework. Conducted thorough testing using Postman and JMeter to ensure functionality, reliability, and performance.</p>
-        </div>
-        <div class="project-column">
-            <h3>Kutumba Project</h3>
-            <p>Client: Government of Karnataka</p>
-            <p>Description: Enhanced the official Kutumba website with features such as live COVID information using MVC architecture. Implemented solutions to improve user experience and data management.</p>
-        </div>
-    </div>
-</section>
-        <section class="section main">
-            <h2>Languages</h2>
-            <p>English, Hindi, Kannada, Marwadi</p>
-        </section>
+<script>
+  const display = document.getElementById('display');
 
-        <section id="contact" class="section main">
-            <h2>Contact</h2>
-            <p>Bengaluru, India 560026</p>
-            <p>Phone: 7411773622</p>
-            <p>Email: vinod01.kumar03@gmail.com</p>
-        </section>
-    </div>
+  function append(value) {
+    if (display.textContent === '0') {
+      display.textContent = value;
+    } else {
+      display.textContent += value;
+    }
+  }
 
-    <footer>
-        <p>&copy; 2024 Vinod Kumar. All rights reserved.</p>
-	
-	<div class="footer-icons">
-                <a href="https://www.linkedin.com/in/vinod-kumar-bba69b183/" target="_blank">
-                    LinkedIn
-                </a>
-                <a href="https://github.com/vinod0197" target="_blank">
-                    GitHub
-                </a>
-                <a href="https://leetcode.com/u/vinod0103/" target="_blank">
-                    LeetCode
-                </a>
-                <a href="https://www.hackerrank.com/profile/vinod01_kumar03" target="_blank">
-                    HackerRank
-                </a>
-                <a href="https://www.instagram.com/vinod011297/" target="_blank">
-                    Instagram
-                </a>
-            </div>
+  function clearDisplay() {
+    display.textContent = '0';
+  }
 
-    </footer>
+  function backspace() {
+    let val = display.textContent;
+    display.textContent = val.length > 1 ? val.slice(0, -1) : '0';
+  }
+
+  function calculate() {
+    try {
+      let input = display.textContent
+        .replace(/√/g, 'Math.sqrt')
+        .replace(/ln\(/g, 'Math.log(')
+        .replace(/log\(/g, 'Math.log10(')
+        .replace(/sin\(/g, 'Math.sin(')
+        .replace(/cos\(/g, 'Math.cos(')
+        .replace(/tan\(/g, 'Math.tan(')
+        .replace(/π/g, 'Math.PI')
+        .replace(/e/g, 'Math.E')
+        .replace(/\^/g, '**');
+
+      display.textContent = eval(input);
+    } catch (err) {
+      display.textContent = 'Error';
+    }
+  }
+</script>
+
 </body>
 </html>
